@@ -44,5 +44,6 @@ public class transpose_matrix {
             }
             System.out.println();
         }
+        sc.close();
     }
 }
