@@ -32,7 +32,7 @@ public class Car {
         Model_Name = sc.nextLine();
         System.out.println("Year of Manufacturing");
         Year_Manufacturing= sc.nextDouble();
-        System.out.println("Model Name");
+        System.out.println("Milage");
         Milage = sc.nextDouble();
         Car car = new Car();
         car.assign(Company_Name, Model_Name, Year_Manufacturing, Milage);
