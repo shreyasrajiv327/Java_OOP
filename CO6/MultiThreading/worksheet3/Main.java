@@ -1,49 +1,48 @@
 package worksheet3;
 class Course{
-     String courseName,CourseInstructor;
-     Course(String N,String I)
-     {
-        this.courseName =  N;
-        this.CourseInstructor = I;
-     }
+    String Teacher;
+    String CourseName;
+    Course(String T,String C){
+        this.CourseName =C;
+        this.Teacher =T;
+    }
 
-     public void getTeacher()
-     {
-        System.out.println("Course: "+ courseName + "Teacher Name" + CourseInstructor);
-     }
+    public synchronized void getTeacher(){
+         System.out.println("Course Name :" + CourseName + "Course Head :" + Teacher);
+    }
 }
 
 class StudentA extends Thread{
-    Course c;
-    StudentA(Course c)
-    {
-        this.c =c;
+    Course X;
+    StudentA(Course A){
+        this.X = A;
     }
-    public synchronized void run()
-    {
-        c.getTeacher();
+
+    public void run(){
+        X.getTeacher();
     }
 }
-
 class StudentB extends Thread{
-    Course c;
-    StudentB(Course c)
-    {
-        this.c =c;
+    Course X;
+    StudentB(Course A){
+        this.X = A;
     }
-    public synchronized void run()
-    {
-        c.getTeacher();
+
+    public void run(){
+        X.getTeacher();
     }
 }
-
-public class Main{
-    public static void main(String[] args) {
-        Course c1 = new Course("OS","Mouli Sir");
-        Course c2 = new Course("Agile","CVSN Sir");
-        StudentA s1 = new StudentA(c1);
-        StudentB s2 = new StudentB(c2);
-        s1.start();
-        s2.start();
-    }
+/**
+ * Main
+ */
+public class Main {
+   public static void main(String[] args) {
+     Course c1 = new Course("DSA","Shabeer Basha");
+     Course c2 = new Course("IML","Shabeer Basha");
+     StudentA s1 = new StudentA(c1);
+     StudentB s2 = new StudentB(c2);
+     s1.start();
+     s2.start();
+   }
+    
 }
