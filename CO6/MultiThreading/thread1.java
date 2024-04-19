@@ -1,7 +1,7 @@
 class Multi extends Thread{
     public void run()
     {
-        System.out.println("Hello");
+        System.out.println("Shreyas R");
     }
 }
 public class thread1{
